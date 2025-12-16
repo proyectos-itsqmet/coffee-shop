@@ -4,21 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Coffee Shop</title>
   </head>
   <body class="w-full">
-    <div class="w-full bg-[#402B1C]">
-      <div class="">
-        <div class="flex flex-col">
-          <div class="flex gap-4 items-center justify-center">
-            <div class="h-10 w-10 bg-[#D7AE75] rounded-full"></div>
-            <span class="text-white font-semibold text-xl">Coffee Shop</span>
+    <div class="w-full flex bg-[#F7EDE9]">
+      <div class="max-w-screen-xl flex mx-auto py-8 gap-10">
+        <div class="w-1/2 items-start justify-center flex flex-col gap-6">
+          <div class="bg-[#ECD9C6] px-6 py-2 rounded-lg">
+            <span class="text-[#c09559]">Visítanos</span>
           </div>
-          <span class="text-white text-sm"
-            >Tu lugar favorito para disfrutar del mejor café artesanal y
-            deliciosos postres en un ambiente acogedor.</span
+          <span class="text-4xl text-[#423024] font-bold"
+            >Te esperamos con una sonrisa</span
           >
+          <span class="text-[#847062]"
+            >Ubicados en el corazón de la ciudad, Café Dulce es el lugar
+            perfecto para disfrutar de un buen café, trabajar en un ambiente
+            tranquilo, o simplemente pasar un rato agradable con amigos.</span
+          >
+          <div class="flex items-center gap-4">
+            <div class="h-12 w-12 bg-teal-100 rounded-lg"></div>
+            <div class="flex flex-col">
+              <span class="font-semibold text-[#423024]">Ubicación</span>
+              <span class="text-[#847062]">Av. Principal #123, Centro</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="h-12 w-12 bg-[#F0D9D1] rounded-lg"></div>
+            <div class="flex flex-col">
+              <span class="font-semibold text-[#423024]">Ubicación</span>
+              <span class="text-[#847062]">Av. Principal #123, Centro</span>
+            </div>
+          </div>
+        </div>
+        <div class="w-1/2 items-start flex flex-col gap-6 justify-center">
+          <div
+            class="w-full h-96 flex flex-col bg-white rounded-2xl px-8 py-8 gap-6"
+          >
+            <div class="w-full h-full flex bg-[#F0D9D1] rounded-2xl"></div>
+            <div class="flex justify-between">
+              <div class="flex flex-col">
+                <span class="text-[#423024] font-semibold text-2xl"
+                  >Café Dulce</span
+                >
+                <span class="text-[#847062]">Tu lugar favorito</span>
+              </div>
+              <div
+                class="px-6 py-2 flex items-center justify-center bg-[#78543A] rounded-lg hover:cursor-pointer duration-300 hover:scale-105"
+              >
+                <span class="text-white font-semibold">Contactar</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
