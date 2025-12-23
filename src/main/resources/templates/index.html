@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,18 +13,99 @@
 
     <title>Coffee Shop</title>
   </head>
-  <body class="w-full">
+  <body class="w-full pt-16 relative">
+    <!-- Navbar -->
+    <div th:replace="fragments/header :: navbar"></div>
+
+    <div class="relative w-full h-[600px] overflow-hidden">
+      <img
+        th:src="@{/images/02.jpg}"
+        alt="Coffee"
+        class="w-full h-full object-cover block"
+      />
+      <div
+        class="absolute inset-y-0 right-0 w-full bg-gradient-to-l from-transparent via-white/80 to-white"
+      >
+        <div class="max-w-screen-xl h-full flex items-center mx-auto">
+          <div class="w-1/2 flex flex-col justify-center gap-6">
+            <div
+              class="bg-[#ECD9C6] px-6 py-2 rounded-full inline-flex w-fit self-start"
+            >
+              <span class="text-[#c09559]">Bienvenido a Coffee Shop</span>
+            </div>
+            <span class="text-6xl text-[#423024] font-semibold"
+              >Donde cada <span class="text-[#78543A]">taza</span> cuenta una
+              historia</span
+            >
+            <span class="text-[#847062]"
+              >Disfruta del mejor café artesanal en un ambiente cálido y
+              acogedor. Elaboramos cada bebida con pasión y los mejores granos
+              seleccionados.</span
+            >
+            <div class="flex gap-6">
+              <div
+                class="px-6 py-2 flex items-center justify-center bg-[#78543A] rounded-lg cursor-pointer"
+              >
+                <span class="text-white font-semibold">Ver menú</span>
+              </div>
+              <a
+                th:href="@{/cs/register}"
+                class="px-6 py-2 flex items-center justify-center bg-white border border-2 border-[#78543A] rounded-lg cursor-pointer"
+              >
+                <span class="text-[#78543A] font-semibold">Registrarse</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full bg-[#F6F2EE]">
+      <div class="max-w-screen-xl mx-auto flex py-10 justify-between gap-10">
+        <div
+          class="w-full flex flex-col items-center justify-center bg-white px-6 py-4 rounded-lg gap-2"
+        >
+          <div class="h-14 w-14 bg-[#ECD9C6] rounded-lg"></div>
+          <span class="text-base text-[#847062] font font-semibold"
+            >Café Artesanal</span
+          ><span class="text-sm text-center text-[#847062]"
+            >Granos seleccionados de las mejores regiones del mundo</span
+          >
+        </div>
+        <div
+          class="w-full flex flex-col items-center justify-center bg-white px-6 py-4 rounded-lg gap-2"
+        >
+          <div class="h-14 w-14 bg-teal-100 rounded-lg"></div>
+          <span class="text-base text-[#847062] font font-semibold"
+            >Hecho con Amor</span
+          ><span class="text-sm text-center text-[#847062]"
+            >Cada bebida preparada con dedicación y cariño</span
+          >
+        </div>
+        <div
+          class="w-full flex flex-col items-center justify-center bg-white px-6 py-4 rounded-lg gap-2"
+        >
+          <div class="h-14 w-14 bg-purple-100 rounded-lg"></div>
+          <span class="text-base text-[#847062] font font-semibold"
+            >Ambiente Único</span
+          ><span class="text-sm text-center text-[#847062]"
+            >Espacio acogedor perfecto para trabajar o relajarse</span
+          >
+        </div>
+      </div>
+    </div>
+
     <div class="w-full flex bg-[#F7EDE9]">
-      <div class="max-w-screen-xl flex mx-auto py-8 gap-10">
+      <div class="max-w-screen-xl flex mx-auto py-16 gap-10">
         <div class="w-1/2 items-start justify-center flex flex-col gap-6">
-          <div class="bg-[#ECD9C6] px-6 py-2 rounded-lg">
+          <div class="bg-[#ECD9C6] px-6 py-2 rounded-full">
             <span class="text-[#c09559]">Visítanos</span>
           </div>
           <span class="text-4xl text-[#423024] font-bold"
             >Te esperamos con una sonrisa</span
           >
           <span class="text-[#847062]"
-            >Ubicados en el corazón de la ciudad, Café Dulce es el lugar
+            >Ubicados en el corazón de la ciudad, Coffee Shop es el lugar
             perfecto para disfrutar de un buen café, trabajar en un ambiente
             tranquilo, o simplemente pasar un rato agradable con amigos.</span
           >
@@ -45,26 +126,36 @@
         </div>
         <div class="w-1/2 items-start flex flex-col gap-6 justify-center">
           <div
-            class="w-full h-96 flex flex-col bg-white rounded-2xl px-8 py-8 gap-6"
+            class="w-full flex flex-col bg-white rounded-2xl px-8 py-8 gap-6"
           >
-            <div class="w-full h-full flex bg-[#F0D9D1] rounded-2xl"></div>
+            <div class="w-full h-full flex bg-[#F0D9D1] rounded-2xl">
+              <img
+                th:src="@{/images/03.jpg}"
+                alt="Coffee"
+                class="w-full h-full object-cover rounded-2xl"
+              />
+            </div>
             <div class="flex justify-between">
               <div class="flex flex-col">
                 <span class="text-[#423024] font-semibold text-2xl"
-                  >Café Dulce</span
+                  >Coffee Shop</span
                 >
                 <span class="text-[#847062]">Tu lugar favorito</span>
               </div>
-              <div
+              <a
+                th:href="@{/cs/contact}"
                 class="px-6 py-2 flex items-center justify-center bg-[#78543A] rounded-lg hover:cursor-pointer duration-300 hover:scale-105"
               >
                 <span class="text-white font-semibold">Contactar</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer :: footer"></div>
   </body>
 </html>
 

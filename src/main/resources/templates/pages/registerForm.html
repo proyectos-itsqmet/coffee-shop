@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Coffee Shop | Formulario de registro</title>
+  </head>
+  <body class="w-full pt-16 relative">
+    <!-- Navbar -->
+    <div th:replace="fragments/header :: navbar"></div>
+
+    <div
+      class="w-full w-full bg-gradient-to-l from-teal-200/30 via-[#F0D9D1]/70 to-white/30"
+    >
+      <div class="max-w-screen-xl mx-auto">
+        <div
+          class="w-full flex flex-col items-center justify-center py-10 gap-4"
+        >
+          <div
+            class="text-sm bg-[#F0D9D1] text-[#78543A] rounded-full px-6 py-1"
+          >
+            <span>Únete a Nosotros</span>
+          </div>
+          <span class="text-5xl text-[#423024] font-semibold"
+            >Crea tu Cuenta</span
+          >
+          <span class="text-[#423024]"
+            >Regístrate para acceder a promociones exclusivas, acumular puntos y
+            más.</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full bg-[#FAF7F4]">
+      <div class="max-w-screen-xl mx-auto py-12">
+        <div class="flex items-center justify-center">
+          <div class="min-w-xl max-w-2xl flex flex-col bg-white rounded-lg p-6">
+            <form
+              action="/cs/submitRegister"
+              method="post"
+              th:object="${register}"
+            >
+              <div class="flex flex-col gap-2 pt-4">
+                <label for="firstName">
+                  <span class="text-[#847062]">Nombres</span>
+                  <span class="text-red-600">*</span>
+                </label>
+                <input
+                  th:field="*{firstName}"
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  placeholder=""
+                  required
+                  class="w-full border border-gray-200 rounded-lg py-2 focus:outline-none focus:ring-2 focus:ring-[#ECD9C6] focus:ring-offset-2 focus:ring-offset-white outline-none px-4"
+                />
+                <span
+                  th:if="${#fields.hasErrors('firstName')}"
+                  th:errors="*{firstName}"
+                  class="text-red-600 text-xs"
+                  >Error Nombre</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 pt-4">
+                <label for="lastName">
+                  <span class="text-[#847062]">Apellidos</span>
+                  <span class="text-red-600">*</span>
+                </label>
+                <input
+                  th:field="*{lastName}"
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  placeholder=""
+                  required
+                  class="w-full border border-gray-200 rounded-lg py-2 focus:outline-none focus:ring-2 focus:ring-[#ECD9C6] focus:ring-offset-2 focus:ring-offset-white outline-none px-4"
+                />
+                <span
+                  th:if="${#fields.hasErrors('lastName')}"
+                  th:errors="*{lastName}"
+                  class="text-red-600 text-xs"
+                  >Error Apellido</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 pt-4">
+                <label for="email">
+                  <span class="text-[#847062]">Email</span>
+                  <span class="text-red-600">*</span>
+                </label>
+                <input
+                  th:field="*{email}"
+                  type="text"
+                  name="email"
+                  id="email"
+                  placeholder=""
+                  required
+                  class="w-full border border-gray-200 rounded-lg py-2 focus:outline-none focus:ring-2 focus:ring-[#ECD9C6] focus:ring-offset-2 focus:ring-offset-white outline-none px-4"
+                />
+                <span
+                  th:if="${#fields.hasErrors('email')}"
+                  th:errors="*{email}"
+                  class="text-red-600 text-xs"
+                  >Error Email</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 pt-4">
+                <label for="phone">
+                  <span class="text-[#847062]">Telefono</span>
+                  <span class="text-red-600">*</span>
+                </label>
+                <input
+                  th:field="*{phone}"
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  placeholder=""
+                  required
+                  class="w-full border border-gray-200 rounded-lg py-2 focus:outline-none focus:ring-2 focus:ring-[#ECD9C6] focus:ring-offset-2 focus:ring-offset-white outline-none px-4"
+                />
+                <span
+                  th:if="${#fields.hasErrors('phone')}"
+                  th:errors="*{phone}"
+                  class="text-red-600 text-xs"
+                  >Error Telefono</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 pt-4">
+                <label for="password">
+                  <span class="text-[#847062]">Contraseña</span>
+                  <span class="text-red-600">*</span>
+                </label>
+                <input
+                  th:field="*{password}"
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder=""
+                  required
+                  class="w-full border border-gray-200 rounded-lg py-2 focus:outline-none focus:ring-2 focus:ring-[#ECD9C6] focus:ring-offset-2 focus:ring-offset-white outline-none px-4"
+                />
+                <span
+                  th:if="${#fields.hasErrors('password')}"
+                  th:errors="*{password}"
+                  class="text-red-600 text-xs"
+                  >Error Contraseña</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 pt-4">
+                <label for="confirmPassword">
+                  <span class="text-[#847062]">Confirmar Contraseña</span>
+                  <span class="text-red-600">*</span>
+                </label>
+                <input
+                  th:field="*{confirmPassword}"
+                  type="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  placeholder=""
+                  required
+                  class="w-full border border-gray-200 rounded-lg py-2 focus:outline-none focus:ring-2 focus:ring-[#ECD9C6] focus:ring-offset-2 focus:ring-offset-white outline-none px-4"
+                />
+                <span
+                  th:if="${#fields.hasErrors('confirmPassword')}"
+                  th:errors="*{confirmPassword}"
+                  class="text-red-600 text-xs"
+                  >Error Contraseña</span
+                >
+              </div>
+              <button
+                type="submit"
+                class="bg-[#78543A] cursor-pointer my-6 px-6 py-2 rounded-lg flex items-center justify-center"
+              >
+                <span class="text-white font-semibold">Crear cuenta</span>
+              </button>
+            </form>
+            <span class="text-[#847062] text-sm text-center"
+              >Al registrarte, aceptas nuestros términos y condiciones.</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+  </body>
+</html>

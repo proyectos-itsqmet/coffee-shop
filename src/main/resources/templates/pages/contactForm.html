@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Coffee Shop | Formulario de contacto</title>
+  </head>
+  <body class="pt-16">
+    <!-- Navbar -->
+    <div th:replace="fragments/header :: navbar"></div>
+
+    <div
+      class="w-full w-full bg-gradient-to-l from-teal-200/30 via-[#F0D9D1]/70 to-white/30"
+    >
+      <div class="max-w-screen-xl mx-auto">
+        <div
+          class="w-full flex flex-col items-center justify-center py-10 gap-4"
+        >
+          <div class="text-sm bg-teal-100 text-teal-500 rounded-full px-6 py-1">
+            <span>Contacto</span>
+          </div>
+          <span class="text-5xl text-[#423024] font-semibold"
+            >¿Tienes Preguntas?</span
+          >
+          <span class="text-[#423024]"
+            >Estamos aquí para ayudarte. Escríbenos y te responderemos a la
+            brevedad.</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full bg-[#FAF7F4]">
+      <div class="max-w-screen-xl mx-auto py-12">
+        <div class="flex items-center justify-center">
+          <div
+            class="min-w-2xl max-w-2xl flex flex-col bg-white rounded-lg p-6"
+          >
+            <h2 class="text-2xl text-[#423024]">Envíanos un Mensaje</h2>
+            <form
+              action="/cs/submitContact"
+              method="post"
+              th:object="${contact}"
+            >
+              <div class="flex flex-col gap-2 pt-4">
+                <label for="fullName">
+                  <span class="text-[#847062]">Nombre Completo</span>
+                  <span class="text-red-600">*</span>
+                </label>
+                <input
+                  th:field="*{fullName}"
+                  type="text"
+                  name="fullName"
+                  id="fullName"
+                  placeholder=""
+                  required
+                  class="w-full border border-gray-200 rounded-lg py-2 focus:outline-none focus:ring-2 focus:ring-[#ECD9C6] focus:ring-offset-2 focus:ring-offset-white outline-none px-4"
+                />
+                <span
+                  th:if="${#fields.hasErrors('fullName')}"
+                  th:errors="*{fullName}"
+                  class="text-red-600 text-xs"
+                  >Error codigo</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 pt-4">
+                <label for="email">
+                  <span class="text-[#847062]">Email</span>
+                  <span class="text-red-600">*</span>
+                </label>
+                <input
+                  th:field="*{email}"
+                  type="text"
+                  name="email"
+                  id="email"
+                  placeholder=""
+                  required
+                  class="w-full border border-gray-200 rounded-lg py-2 focus:outline-none focus:ring-2 focus:ring-[#ECD9C6] focus:ring-offset-2 focus:ring-offset-white outline-none px-4"
+                />
+                <span
+                  th:if="${#fields.hasErrors('email')}"
+                  th:errors="*{email}"
+                  class="text-red-600 text-xs"
+                  >Error email</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 pt-4">
+                <label for="phone">
+                  <span class="text-[#847062]">Telefono</span>
+                  <span class="text-red-600">*</span>
+                </label>
+                <input
+                  th:field="*{phone}"
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  placeholder=""
+                  required
+                  class="w-full border border-gray-200 rounded-lg py-2 focus:outline-none focus:ring-2 focus:ring-[#ECD9C6] focus:ring-offset-2 focus:ring-offset-white outline-none px-4"
+                />
+                <span
+                  th:if="${#fields.hasErrors('phone')}"
+                  th:errors="*{phone}"
+                  class="text-red-600 text-xs"
+                  >Error Telefono</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 pt-4">
+                <label for="subject">
+                  <span class="text-[#847062]">Asunto</span>
+                  <span class="text-red-600">*</span>
+                </label>
+                <input
+                  th:field="*{subject}"
+                  type="text"
+                  name="subject"
+                  id="subject"
+                  placeholder=""
+                  required
+                  class="w-full border border-gray-200 rounded-lg py-2 focus:outline-none focus:ring-2 focus:ring-[#ECD9C6] focus:ring-offset-2 focus:ring-offset-white outline-none px-4"
+                />
+                <span
+                  th:if="${#fields.hasErrors('subject')}"
+                  th:errors="*{subject}"
+                  class="text-red-600 text-xs"
+                  >Error asunto</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 pt-4">
+                <label for="message">
+                  <span class="text-[#847062]">Mensaje</span>
+                  <span class="text-red-600">*</span>
+                </label>
+                <input
+                  th:field="*{message}"
+                  type="text"
+                  name="message"
+                  id="message"
+                  placeholder=""
+                  required
+                  class="w-full border border-gray-200 rounded-lg py-2 focus:outline-none focus:ring-2 focus:ring-[#ECD9C6] focus:ring-offset-2 focus:ring-offset-white outline-none px-4"
+                />
+                <span
+                  th:if="${#fields.hasErrors('message')}"
+                  th:errors="*{message}"
+                  class="text-red-600 text-xs"
+                  >Error codigo</span
+                >
+              </div>
+              <button
+                type="submit"
+                class="w-min bg-[#78543A] cursor-pointer my-6 px-6 py-2 rounded-lg flex items-center justify-center"
+              >
+                <span class="text-white font-semibold">Enviar</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+  </body>
+</html>
